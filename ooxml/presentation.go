@@ -3,36 +3,41 @@ package ooxml
 import (
 	"errors"
 	"io"
+	"log"
 
-	"github.com/t-yuki/gooxml/opc"
+	"gooxml/opc"
 )
 
 const (
 	ContentTypePresentationDocument    = "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"
 	ContentTypePresentationSlide       = "application/vnd.openxmlformats-officedocument.presentationml.slide+xml"
 	ContentTypePresentationSlideMaster = "application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"
+	ContentTypePresentationSlideLayout = "application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml"
+	ContentTypeImagePNG                = "image/png"
+	ContentTypeImageGIF                = "image/gif"
+	ContentTypeImageJPEG               = "image/jpeg"
+	ContentTypeImageJPG                = "image/jpg"
 )
 
 func init() {
 	opc.RegisterReadFormat(ContentTypePresentationDocument, buildPresentationDocument)
 	opc.RegisterReadFormat(ContentTypePresentationSlide, buildPresentationSlide)
+	opc.RegisterReadFormat(ContentTypePresentationSlideLayout, buildPresentationSlideLayout)
+	opc.RegisterReadFormat(ContentTypePresentationSlideMaster, buildPresentationSlideMaster)
+	opc.RegisterReadFormat(ContentTypeImagePNG, buildPresentationImagePNG)
+	opc.RegisterReadFormat(ContentTypeImageGIF, buildPresentationImageGIF)
+	opc.RegisterReadFormat(ContentTypeImageJPEG, buildPresentationImageJPEG)
+	opc.RegisterReadFormat(ContentTypeImageJPG, buildPresentationImageJPG)
 }
 
 func ReadPresentationDocument(in io.Reader) (*PresentationDocument, error) {
-	pkg, err := opc.Read(in)
-	// ignore err if pkg is available
-	if err != nil && pkg == nil {
-		return nil, err
-	}
+	pkg, _ := opc.Read(in)
 	return findPresentationDocument(pkg)
 }
 
 func OpenPresentationDocument(name string) (*PresentationDocument, error) {
 	pkg, err := opc.Open(name)
-	if err != nil && pkg == nil {
-		return nil, err
-	}
-	// ignore err if pkg is available
+	log.Println(err)
 	return findPresentationDocument(pkg)
 }
 

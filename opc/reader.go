@@ -4,7 +4,6 @@ import (
 	"archive/zip"
 	"bytes"
 	"io"
-	"io/ioutil"
 )
 
 var DefaultReadFormatter = &ReadFormatter{}
@@ -49,7 +48,7 @@ func (rd *ZipReader) Open(name string) (*Package, error) {
 }
 
 func (rd *ZipReader) Read(in io.Reader) (*Package, error) {
-	buf, err := ioutil.ReadAll(in)
+	buf, err := io.ReadAll(in)
 	if err != nil {
 		return nil, err
 	}

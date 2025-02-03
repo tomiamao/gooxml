@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/t-yuki/gooxml/opc"
+	"gooxml/opc"
 )
 
 type PresentationSlide struct {

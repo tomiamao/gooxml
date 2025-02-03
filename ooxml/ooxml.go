@@ -1,6 +1,6 @@
 package ooxml
 
-import "github.com/t-yuki/gooxml/opc"
+import "gooxml/opc"
 
 const (
 	RelationTypeOfficeDocument     opc.RelationType = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"

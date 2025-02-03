@@ -1,0 +1,7 @@
+cmd/pptx2md/_docProps_thumbnail.jpeg
+cmd/pptx2md/_ppt_media_image1.png
+cmd/pptx2md/_ppt_media_image2.gif
+cmd/pptx2md/pptx2md
+testdata/*
+.DS_Store
+cmd/.DS_Store
