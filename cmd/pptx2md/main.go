@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"gooxml/ooxml"
-	"gooxml/opc"
+	"github.com/tomiamao/gooxml/ooxml"
+	"github.com/tomiamao/gooxml/opc"
 )
 
 func main() {

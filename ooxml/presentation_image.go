@@ -1,9 +1,10 @@
 package ooxml
 
 import (
-	"gooxml/opc"
 	"io"
 	"log"
+
+	"github.com/tomiamao/gooxml/opc"
 )
 
 func buildPresentationImagePNG(pkg *opc.Package, partName string, in io.Reader) error {

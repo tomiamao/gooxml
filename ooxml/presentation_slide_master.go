@@ -2,8 +2,9 @@ package ooxml
 
 import (
 	"encoding/xml"
-	"gooxml/opc"
 	"io"
+
+	"github.com/tomiamao/gooxml/opc"
 )
 
 type PresentationSlideMaster struct {

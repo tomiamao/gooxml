@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"gooxml/opc"
+	"github.com/tomiamao/gooxml/opc"
 )
 
 type PresentationDocument struct {

@@ -5,7 +5,7 @@ import (
 	"io"
 	"log"
 
-	"gooxml/opc"
+	"github.com/tomiamao/gooxml/opc"
 )
 
 const (
